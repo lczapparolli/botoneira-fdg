@@ -1,0 +1,28 @@
+{
+  "name": "botoneira-fdg",
+  "version": "1.0.0",
+  "description": "Projeto criado para utilização no programa humorístico Fundo de Granja. O objetivo principal é reproduzir diversas peças de áudio simultâneamente localizando-as facilmente em categorias.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node_modules/.bin/electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lczapparolli/botoneira-fdg.git"
+  },
+  "keywords": [
+    "audio",
+    "player",
+    "radio"
+  ],
+  "author": "LC Zapparolli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lczapparolli/botoneira-fdg/issues"
+  },
+  "homepage": "https://github.com/lczapparolli/botoneira-fdg#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.5"
+  }
+}
