@@ -1,0 +1,28 @@
+describe("Category", function () {
+  var Category = require("../../app/js/model/category.js");
+  var Sound = require("../../app/js/model/sound.js");
+
+  var category;
+
+  beforeEach(function () {
+    category = new Category("name", "path");
+  });
+
+  it("Should have property 'name' defined", function () {
+    expect(category.name).toBeDefined();
+  });
+
+  it("Should have property 'path' defined", function () {
+    expect(category.path).toBeDefined();
+  });
+
+  it("Should have property 'sounds' as empty array", function () {
+    expect(category.sounds.length).toBe(0);
+  });
+
+  it("Should add a sound to 'sounds' array", function () {
+    category.addSound(new Sound("title", "path", category));
+    expect(category.sounds.length).toBe(1);
+  });
+
+});

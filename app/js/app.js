@@ -1,8 +1,9 @@
 'use strict';
 
-const App = function () {
+function App() {
   return {
+    categories: []
   };
-};
+}
 
-var app = new App();
+module.exports = App;
