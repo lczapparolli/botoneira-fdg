@@ -27,6 +27,7 @@
     "jasmine": "^2.4.1"
   },
   "dependencies": {
+    "matchete": "^1.0.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
   }

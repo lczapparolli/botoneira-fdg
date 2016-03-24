@@ -3,21 +3,36 @@ describe("Sound", function () {
   var Category = require("../../app/js/model/category.js");
 
   var sound;
+  var category;
 
   beforeEach(function () {
-    sound = new Sound("title", "path", new Category());
+    category = new Category("title", "path");
+    sound = new Sound("title", "path", category);
   });
 
   it("Should have property 'title' defined", function () {
-    expect(sound.title).toBeDefined();
+    expect(sound.title).toBe("title");
   });
 
   it("Should have property 'path' defined", function () {
-    expect(sound.path).toBeDefined();
+    expect(sound.path).toBe("path");
   });
 
   it("Should have property 'category' defined", function () {
-    expect(sound.category).toBeDefined();
+    expect(sound.category).toBe(category);
+  });
+
+  it("Should have property 'visible' defined with default value 'true'", function () {
+    expect(sound.visible).toBe(true);
+  });
+
+  it("Should call event on visible state change", function (done) {
+    sound.onChangeVisible = function (snd) {
+      expect(sound.visible).toBe(false);
+      expect(sound.visible).toBe(snd.visible);
+      done();
+    };
+    sound.visible = false;
   });
 
 });

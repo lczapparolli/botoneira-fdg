@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
 function App() {
-  return {
-    categories: []
-  };
-}
+  this.categories = [];
+};
 
 module.exports = App;
