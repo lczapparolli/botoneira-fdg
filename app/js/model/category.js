@@ -1,29 +1,31 @@
-"use strict";
+(function () {
+  "use strict";
 
-function Category (pName, pPath){
-  this.name = pName;
-  this.path = pPath;
-  this.sounds = [];
-  this.onChangeVisible = null;
-  this._visible = true;
-};
+  class Category  {
+    constructor (name, path) {
+      this.name = name;
+      this.path = path;
+      this.sounds = [];
+      this.onChangeVisible = null;
+      this._visible = true;
+    }
+    
+    get visible () {
+      return this._visible;
+    }
 
-Object.defineProperty(Category.prototype, "visible", {
-  get: function () {
-    return this._visible;
-  },
+    set visible (newValue) {
+      var oldValue = this._visible;
+      this._visible = newValue;
+      if ((oldValue !== newValue) && (typeof this.onChangeVisible === "function")) {
+        this.onChangeVisible(this);
+      }
+    }
 
-  set: function (newValue) {
-    var oldValue = this._visible;
-    this._visible = newValue;
-    if ((oldValue !== newValue) && (typeof this.onChangeVisible === "function")) {
-      this.onChangeVisible(this);
+    addSound (sound) {
+      this.sounds.push(sound);
     }
   }
-});
 
-Category.prototype.addSound = function(sound) {
-  this.sounds.push(sound);
-};
-
-module.exports = Category;
+  module.exports = Category;
+})();

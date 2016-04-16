@@ -24,7 +24,11 @@
   "homepage": "https://github.com/lczapparolli/botoneira-fdg#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.36.5",
-    "jasmine": "^2.4.1"
+    "gulp": "^3.9.1",
+    "gulp-jasmine": "^2.3.0",
+    "gulp-jshint": "^2.0.0",
+    "jasmine": "^2.4.1",
+    "jshint": "^2.9.1"
   },
   "dependencies": {
     "matchete": "^1.0.1",

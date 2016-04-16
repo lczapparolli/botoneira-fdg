@@ -1,7 +1,11 @@
-"use strict";
+(function () {
+  "use strict";
 
-function App() {
-  this.categories = [];
-};
+  class App {
+    constructor () {
+      this.categories = [];
+    }
+  }
 
-module.exports = App;
+  module.exports = App;
+})();
