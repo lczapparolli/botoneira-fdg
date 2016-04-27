@@ -9,7 +9,7 @@ var paths = {
 };
 
 gulp.task("default", ["test"], function() {
-  // place code for your default task here
+  
 });
 
 gulp.task("lint", function () {
