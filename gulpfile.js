@@ -1,6 +1,8 @@
 var gulp = require("gulp");
 var jshint = require("gulp-jshint");
 var jasmine = require("gulp-jasmine");
+var childProcess  = require('child_process');
+var electron = require('electron-prebuilt');
 
 var paths = {
   scripts: ["./app/main.js", "./app/js/**/*.js"],
@@ -9,7 +11,7 @@ var paths = {
 };
 
 gulp.task("default", ["test"], function() {
-  
+
 });
 
 gulp.task("lint", function () {
@@ -24,11 +26,11 @@ gulp.task("test", ["lint"], function () {
 });
 
 gulp.task("run", ["test"], function () {
-// TODO: Set "Debug" environment
-// TODO: Call electron to run app
+  process.env.NODE_ENV = "debug";
+  return childProcess.spawn(electron, ['.'], { stdio: 'inherit' });
 });
 
 gulp.task("build", ["test"], function () {
-// TODO: Set "Release" environment
+  process.env.NODE_ENV = "release";
 // TODO: Call electron to pack app
 });

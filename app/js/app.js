@@ -3,9 +3,11 @@
 
   var FileController = require("./controller/fileController.js");
   var FilterController = require("./controller/filterController.js");
+  var Env = require("./util/environment.js");
 
   class App {
     constructor () {
+      Env.log("Debug enabled!");
       this.categories = [];
     }
 
