@@ -1,7 +1,5 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+$roboto-font-path: "../lib/materialize-src/fonts/roboto/";
 
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
+@import "../lib/materialize-src/sass/materialize";
+@import "variables";
+@import "icon";

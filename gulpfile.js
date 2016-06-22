@@ -14,6 +14,7 @@ var paths = {
     main:  "./app/main.js",
     js:    "./app/js/**/*.js",
     sass:  "./app/scss/style.scss",
+    font:  "./app/fonts/**/*",
     lib:   "./app/lib/**/*",
     html:  "./app/pages/**/*.html",
     react: "./app/js/view/*.js"
@@ -22,6 +23,7 @@ var paths = {
     main: "./build",
     js:   "./build/js",
     css:  "./build/css",
+    font: "./build/fonts",
     html: "./build/pages",
     lib:  "./build/lib"
   },
@@ -36,8 +38,7 @@ gulp.task("default", ["test"], function() {
 gulp.task("lint", function () {
   gulp.src(paths.scripts.js)
     .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failOnError());
+    .pipe(eslint.format());
 });
 
 gulp.task("test", ["lint"], function () {
@@ -45,14 +46,14 @@ gulp.task("test", ["lint"], function () {
     .pipe(jasmine());
 });
 
-gulp.task("run", ["test", "clear", "build-main", "build-html", "build-js", "build-css", "build-lib"],
+gulp.task("run", ["test", "clear", "build-main", "build-html", "build-js", "build-css", "build-font", "build-lib"],
   function () {
     process.env.NODE_ENV = "debug";
     return childProcess.spawn(electron, ['.'], { stdio: 'inherit' });
   }
 );
 
-gulp.task("build", ["test", "clear", "build-main", "build-html", "build-js", "build-css", "build-lib"],
+gulp.task("build", ["test", "clear", "build-main", "build-html", "build-js", "build-css", "build-font", "build-lib"],
   function () {
     process.env.NODE_ENV = "release";
     // TODO: Call electron to pack app
@@ -78,12 +79,17 @@ gulp.task("build-js", ["clear"], function () {
     .pipe(gulp.dest(paths.build.js));
 });
 
-gulp.task('build-css', ["clear"], function () {
+gulp.task("build-css", ["clear"], function () {
   return gulp.src(paths.scripts.sass)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(paths.build.css));
+});
+
+gulp.task("build-font", ["clear"], function () {
+  return gulp.src(paths.scripts.font)
+    .pipe(gulp.dest(paths.build.font));
 });
 
 gulp.task("build-lib", ["clear"], function () {
