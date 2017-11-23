@@ -2,8 +2,8 @@
   "use strict";
 
   class Sound {
-    constructor (title, path, category) {
-      this.title = title;
+    constructor (name, path, category) {
+      this.name = name;
       this.path = path;
       this.category = category;
       this.onChangeVisible = null;

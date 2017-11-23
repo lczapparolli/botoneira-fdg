@@ -1,5 +1,7 @@
 $roboto-font-path: "../lib/materialize-src/fonts/roboto/";
 
 @import "../lib/materialize-src/sass/materialize";
-@import "variables";
-@import "icon";
+@import "variables",
+        "icon",
+        "category",
+        "sound";

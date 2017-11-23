@@ -43,7 +43,7 @@
     _filterSounds (sounds, filter) {
       var visibleCount = 0;
       for (var i = 0; i < sounds.length; i++) {
-        sounds[i].visible = matchete(sounds[i].title, filter);
+        sounds[i].visible = matchete(sounds[i].name, filter);
         if (sounds[i].visible) {
           visibleCount++;
         }

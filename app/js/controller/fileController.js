@@ -35,8 +35,9 @@
           var filePath = path.join(dirPath, files[i]);
           var fileExtension = path.extname(files[i]);
           var fileStats = fs.statSync(filePath);
+          var fileWithoutExt = path.parse(files[i]).name;
           if (fileStats.isFile() && (FileController.audioExtensions().indexOf(fileExtension) >= 0)) {
-            category.addSound(new Sound(files[i], filePath, category));
+            category.addSound(new Sound(fileWithoutExt, filePath, category));
           }
         }
         return category;

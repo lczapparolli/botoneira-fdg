@@ -7,11 +7,11 @@ describe("Sound", function () {
 
   beforeEach(function () {
     category = new Category("title", "path");
-    sound = new Sound("title", "path", category);
+    sound = new Sound("name", "path", category);
   });
 
-  it("Should have property 'title' defined", function () {
-    expect(sound.title).toBe("title");
+  it("Should have property 'name' defined", function () {
+    expect(sound.name).toBe("name");
   });
 
   it("Should have property 'path' defined", function () {

@@ -9,7 +9,7 @@
       this.onChangeVisible = null;
       this._visible = true;
     }
-    
+
     get visible () {
       return this._visible;
     }
